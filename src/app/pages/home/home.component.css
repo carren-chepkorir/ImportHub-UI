@@ -1,0 +1,10 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+  }
+  footer {
+    background-color: #000000;
+    color: white;
+    padding: 2rem 1rem;
+  }

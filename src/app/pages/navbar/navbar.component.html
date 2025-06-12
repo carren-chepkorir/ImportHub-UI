@@ -1,0 +1,89 @@
+<!-- Top Bar -->
+<div class="top-bar d-flex justify-content-between px-4 py-2 bg-light border-bottom small">
+    <div class="text-secondary">
+      <i class="bi bi-envelope me-1"></i> info&#64;importhub.co.ke | 
+      <i class="bi bi-telephone ms-2 me-1"></i> +254 700 000 000
+    </div>
+    <div class="text-secondary">
+      <i class="bi bi-headset me-1"></i> Customer Support
+    </div>
+  </div>
+  
+  <!-- Main Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #d86241;">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4" href="#">
+        <i class="bi bi-box-seam me-2"></i>IMPORT HUB
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active px-3" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="#">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="#">Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="#">Marketplace</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="ms-lg-3">
+          <button class="btn btn-outline-light rounded-pill px-3 py-1">
+            <i class="bi bi-person me-1"></i> Account
+          </button>
+          <button class="btn btn-light rounded-pill px-3 py-1 ms-2" style="color: #F2450E;">
+            <i class="bi bi-cart3 me-1"></i> Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Optional Custom CSS -->
+  <style>
+    /* Smooth hover effects */
+    .navbar-nav .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      transform: translateY(-2px);
+    }
+    
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: white;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    .navbar-nav .nav-link:hover::after {
+      width: 60%;
+    }
+    
+    /* Make navbar sticky */
+    .sticky-top {
+      top: -1px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Improve button hover effects */
+    .btn-outline-light:hover {
+      background-color: rgba(255,255,255,0.15);
+    }
+  </style>
