@@ -6,6 +6,9 @@ import { RegisterComponent } from './register/register.component';
 // import { authGuard } from './services/guard/auth.guard';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { OrderComponent } from './admin/admin-dashboard/order/order.component';
+import { DashboardLayoutComponent } from './admin/admin-dashboard/dashboard-layout/dashboard-layout.component';
 const routes: Routes = [
   
   {
@@ -22,13 +25,22 @@ const routes: Routes = [
     component: RegisterComponent
   },
 
+  // {
+  //   path: 'dashboard',
+  //   component: DashboardComponent,
+  //   // canActivate: [authGuard],
+  // },
   {
     path: 'dashboard',
-    component: DashboardComponent,
-    // canActivate: [authGuard],
+    component: AdminDashboardComponent,
+    children: [
+      { path: '', component: DashboardLayoutComponent },
+      { path: 'orders', component: OrderComponent },
+  
+    ],
   },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: 'dashboard' }
+  // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  // { path: '**', redirectTo: 'dashboard' }
 ];
 
 

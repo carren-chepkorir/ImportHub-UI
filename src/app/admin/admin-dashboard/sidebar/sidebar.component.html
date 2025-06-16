@@ -1,0 +1,53 @@
+<nav class="bg-primary sidebar h-100">
+    <div class="position-sticky pt-3">
+      <div class="d-flex align-items-center mb-4 px-3">
+        <i class="fas fa-cube text-white me-2 fs-3"></i>
+        <h2 class="text-white mb-0">ImportHub</h2>
+      </div>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center text-white" 
+             routerLink="/dashboard" 
+             routerLinkActive="active" 
+             [routerLinkActiveOptions]="{exact: true}">
+            <i class="fas fa-th-large me-2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center text-white" 
+             routerLink="/dashboard/orders" 
+             routerLinkActive="active">
+            <i class="fas fa-box me-2"></i> Orders
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center text-white-50" 
+             routerLink="/dashboard/deadlines" 
+             routerLinkActive="active">
+            <i class="fas fa-clock me-2"></i> Deadlines
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center text-white-50" 
+             routerLink="/dashboard/delivered-orders" 
+             routerLinkActive="active">
+            <i class="fas fa-truck me-2"></i> Delivered orders
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center text-white-50" 
+             routerLink="/dashboard/in-transit" 
+             routerLinkActive="active">
+            <i class="fas fa-shipping-fast me-2"></i> In Transit Shipment
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center text-white-50" 
+             routerLink="/dashboard/pending-payments" 
+             routerLinkActive="active">
+            <i class="fas fa-credit-card me-2"></i> Pending Payments
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>

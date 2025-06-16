@@ -10,6 +10,10 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { SidebarComponent } from './admin/admin-dashboard/sidebar/sidebar.component';
+import { OrderComponent } from './admin/admin-dashboard/order/order.component';
+import { DashboardLayoutComponent } from './admin/admin-dashboard/dashboard-layout/dashboard-layout.component';
 
 // export function kcFactory(kService:KeycloakService){
 //   return ()=>kService.init();
@@ -25,7 +29,11 @@ import { HomeComponent } from './pages/home/home.component';
     NavbarComponent,
     FooterComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    AdminDashboardComponent,
+    SidebarComponent,
+    OrderComponent,
+    DashboardLayoutComponent
   ],
   imports: [
     BrowserModule,
