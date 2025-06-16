@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Orders</h2>
+
+  <div *ngIf="orders.length === 0">
+    <p>No orders available.</p>
+  </div>
+
+  <div *ngFor="let order of orders" class="card mb-3">
+    <div class="card-header bg-light">
+      <strong>Order #{{ order.id }}</strong> — Status: <span class="badge bg-info text-dark">{{ order.status }}</span>
+    </div>
+    <div class="card-body">
+      <p><strong>User:</strong> {{ order.userName }} (ID: {{ order.userId }})</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let item of order.items">
+          <strong>{{ item.productName }}</strong> – Quantity: {{ item.quantity }}
+
+          <!-- <ul class="mt-2 ms-3" *ngIf="item.attributes?.length > 0">
+            <li *ngFor="let attr of item.attributes">
+              <em>{{ attr.name }}:</em> {{ attr.value }}
+            </li>
+          </ul> -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
