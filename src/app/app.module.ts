@@ -16,7 +16,9 @@ import { OrderComponent } from './admin/admin-dashboard/order/order.component';
 import { DashboardLayoutComponent } from './admin/admin-dashboard/dashboard-layout/dashboard-layout.component';
 import { RouterModule } from '@angular/router';
 import { PendingPaymentsComponent } from './admin/admin-dashboard/pending-payments/pending-payments.component';
+import { FormsModule } from '@angular/forms';
 import { IntransitShipmentComponent } from './admin/admin-dashboard/intransit-shipment/intransit-shipment.component';
+import { ShipmentDetailsComponent } from './pages/shipment-details/shipment-details.component';
 
 // export function kcFactory(kService:KeycloakService){
 //   return ()=>kService.init();
@@ -38,12 +40,14 @@ import { IntransitShipmentComponent } from './admin/admin-dashboard/intransit-sh
     OrderComponent,
     DashboardLayoutComponent,
     PendingPaymentsComponent,
-    IntransitShipmentComponent
+    IntransitShipmentComponent,
+    ShipmentDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   // providers: [{
   //   provide:APP_INITIALIZER,
