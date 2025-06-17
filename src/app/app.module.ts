@@ -48,6 +48,8 @@ import { ShipmentDetailsComponent } from './pages/shipment-details/shipment-deta
     AppRoutingModule,
     RouterModule,
     FormsModule
+    RouterModule,
+    FormsModule
   ],
   // providers: [{
   //   provide:APP_INITIALIZER,

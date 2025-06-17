@@ -47,6 +47,7 @@ const routes: Routes = [
     path: 'in-transit/:id',
     component: ShipmentDetailsComponent
   }
+      { path: 'payments', component: PendingPaymentsComponent }
   
     ],
   },
