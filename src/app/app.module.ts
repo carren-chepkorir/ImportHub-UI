@@ -14,6 +14,8 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { SidebarComponent } from './admin/admin-dashboard/sidebar/sidebar.component';
 import { OrderComponent } from './admin/admin-dashboard/order/order.component';
 import { DashboardLayoutComponent } from './admin/admin-dashboard/dashboard-layout/dashboard-layout.component';
+import { RouterModule } from '@angular/router';
+import { PendingPaymentsComponent } from './admin/admin-dashboard/pending-payments/pending-payments.component';
 
 // export function kcFactory(kService:KeycloakService){
 //   return ()=>kService.init();
@@ -33,11 +35,13 @@ import { DashboardLayoutComponent } from './admin/admin-dashboard/dashboard-layo
     AdminDashboardComponent,
     SidebarComponent,
     OrderComponent,
-    DashboardLayoutComponent
+    DashboardLayoutComponent,
+    PendingPaymentsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule
   ],
   // providers: [{
   //   provide:APP_INITIALIZER,
