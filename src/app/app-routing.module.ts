@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { OrderComponent } from './admin/admin-dashboard/order/order.component';
 import { DashboardLayoutComponent } from './admin/admin-dashboard/dashboard-layout/dashboard-layout.component';
+import { PendingPaymentsComponent } from './admin/admin-dashboard/pending-payments/pending-payments.component';
 const routes: Routes = [
   
   {
@@ -36,6 +37,7 @@ const routes: Routes = [
     children: [
       { path: '', component: DashboardLayoutComponent },
       { path: 'orders', component: OrderComponent },
+      { path: 'payments', component: PendingPaymentsComponent }
   
     ],
   },
