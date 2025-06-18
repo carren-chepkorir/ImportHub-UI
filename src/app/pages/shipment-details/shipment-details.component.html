@@ -1,0 +1,51 @@
+<div class="container mt-4">
+  <h2>Edit Shipment #{{ shipment.id }}</h2>
+
+  <form (ngSubmit)="saveChanges()" class="mt-4">
+    <div class="mb-3">
+      <label>Status</label>
+      <input class="form-control" [(ngModel)]="shipment.status" name="status" />
+    </div>
+
+    <div class="mb-3">
+      <label>Mode</label>
+      <select class="form-control" [(ngModel)]="shipment.mode" name="mode">
+        <option>Air</option>
+        <option>Sea</option>
+        <option>Road</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label>ETA</label>
+      <input class="form-control" [(ngModel)]="shipment.eta" name="eta" type="date" />
+    </div>
+
+    <div class="mb-3">
+      <label>Arrival Port</label>
+      <input class="form-control" [(ngModel)]="shipment.arrivalPort" name="arrivalPort" />
+    </div>
+
+    <div class="mb-3">
+      <label>Shipping Line</label>
+      <input class="form-control" [(ngModel)]="shipment.shippingLine" name="shippingLine" />
+    </div>
+
+    <div class="mb-3">
+      <label>Clearance Status</label>
+      <input class="form-control" [(ngModel)]="shipment.clearanceStatus" name="clearanceStatus" />
+    </div>
+
+    <div class="mb-3">
+      <label>Orders Contained</label>
+      <input class="form-control" [(ngModel)]="shipment.ordersContained" name="ordersContained" />
+    </div>
+
+    <div class="mb-3">
+      <label>Contact Person</label>
+      <input class="form-control" [(ngModel)]="shipment.contact" name="contact" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Changes</button>
+  </form>
+</div>

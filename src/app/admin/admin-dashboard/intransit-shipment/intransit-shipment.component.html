@@ -1,0 +1,44 @@
+<h2 class="mb-4">In-Transit Shipments</h2>
+
+<div class="filters d-flex gap-3 mb-3">
+  <input type="text" class="form-control" placeholder="Search by Status" [(ngModel)]="filters.status" />
+  <select class="form-select" [(ngModel)]="filters.status">
+    <option value="">All</option>
+    <option *ngFor="let s of activeStatuses" [value]="s">{{ s }}</option>
+  </select>
+</div>
+
+<table class="table table-bordered">
+  <thead class="table-light">
+    <tr>
+      <th>Shipment ID</th>
+      <!-- <th>User</th> -->
+      <th>Status</th>
+      <th>Mode</th>
+      <th>ETA</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let shipment of filteredShipments">
+      <td>#{{ shipment.id }}</td>
+      <!-- <td>{{ shipment.userName }}</td> -->
+      <td><span class="badge bg-info">{{ shipment.status }}</span></td>
+      <td>
+        <span [ngClass]="{
+          'badge bg-primary': shipment.mode === 'Sea',
+          'badge bg-warning': shipment.mode === 'Air',
+          'badge bg-success': shipment.mode === 'Road'
+        }">{{ shipment.mode }}</span>
+      </td>
+      <td>{{ shipment.eta | date }}</td>
+      <td>
+      <button class="btn btn-outline-primary btn-sm" [routerLink]="['/dashboard/in-transit', shipment.id]">
+  View
+</button>
+
+        <button class="btn btn-sm btn-outline-success" (click)="trackShipment(shipment)">Track</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

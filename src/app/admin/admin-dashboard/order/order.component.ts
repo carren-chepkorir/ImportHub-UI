@@ -8,7 +8,8 @@ interface Attribute {
 interface OrderItem {
   productName: string;
   quantity: number;
-  attributes: Attribute[]; // ensure it's always an array
+  price: number;              // ✅ Add price per item here
+  attributes: Attribute[];
 }
 
 interface Order {
@@ -16,7 +17,8 @@ interface Order {
   userId: number;
   userName: string;
   status: string;
-  items: OrderItem[];
+  estimatedFreight: number;
+  items: OrderItem[];         // ✅ Each order contains multiple items
 }
 
 @Component({
@@ -32,10 +34,12 @@ export class OrderComponent implements OnInit {
       userId: 101,
       userName: 'johndoe',
       status: 'Pending',
+      estimatedFreight: 1000,
       items: [
         {
           productName: 'Bluetooth Speaker',
           quantity: 2,
+          price: 200,
           attributes: [
             { name: 'Color', value: 'Black' },
             { name: 'Model', value: 'X300' }
@@ -44,7 +48,8 @@ export class OrderComponent implements OnInit {
         {
           productName: 'LED Ring Light',
           quantity: 1,
-          attributes: [] // defined as empty array to avoid undefined
+          price: 150,
+          attributes: [] // explicitly empty
         }
       ]
     },
@@ -53,10 +58,12 @@ export class OrderComponent implements OnInit {
       userId: 102,
       userName: 'janedoe',
       status: 'Shipped',
+      estimatedFreight: 5000,
       items: [
         {
           productName: 'Wireless Mouse',
           quantity: 1,
+          price: 120,
           attributes: [
             { name: 'Color', value: 'White' }
           ]
@@ -66,7 +73,7 @@ export class OrderComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    // In case future data may have undefined attributes
+    // Ensure attributes array is always defined
     this.orders.forEach(order => {
       order.items.forEach(item => {
         item.attributes = item.attributes ?? [];

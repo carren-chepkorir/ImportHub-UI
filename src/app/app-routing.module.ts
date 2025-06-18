@@ -10,6 +10,8 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { OrderComponent } from './admin/admin-dashboard/order/order.component';
 import { DashboardLayoutComponent } from './admin/admin-dashboard/dashboard-layout/dashboard-layout.component';
 import { PendingPaymentsComponent } from './admin/admin-dashboard/pending-payments/pending-payments.component';
+import { IntransitShipmentComponent } from './admin/admin-dashboard/intransit-shipment/intransit-shipment.component';
+import { ShipmentDetailsComponent } from './pages/shipment-details/shipment-details.component';
 const routes: Routes = [
   
   {
@@ -37,10 +39,22 @@ const routes: Routes = [
     children: [
       { path: '', component: DashboardLayoutComponent },
       { path: 'orders', component: OrderComponent },
+      { path: 'payments', component: PendingPaymentsComponent },
+      { path: 'in-transit', component: IntransitShipmentComponent,
+
+       },
+        {
+    path: 'in-transit/:id',
+    component: ShipmentDetailsComponent
+  }
       { path: 'payments', component: PendingPaymentsComponent }
   
     ],
   },
+  {
+    path: 'in-transit/:id',
+    component: ShipmentDetailsComponent
+  }
   // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   // { path: '**', redirectTo: 'dashboard' }
 ];
