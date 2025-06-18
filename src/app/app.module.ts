@@ -19,6 +19,8 @@ import { PendingPaymentsComponent } from './admin/admin-dashboard/pending-paymen
 import { FormsModule } from '@angular/forms';
 import { IntransitShipmentComponent } from './admin/admin-dashboard/intransit-shipment/intransit-shipment.component';
 import { ShipmentDetailsComponent } from './pages/shipment-details/shipment-details.component';
+import { DeliveredOrdersComponent } from './admin/admin-dashboard/delivered-orders/delivered-orders.component';
+import { FreightComponent } from './admin/admin-dashboard/freight/freight.component';
 
 // export function kcFactory(kService:KeycloakService){
 //   return ()=>kService.init();
@@ -41,14 +43,15 @@ import { ShipmentDetailsComponent } from './pages/shipment-details/shipment-deta
     DashboardLayoutComponent,
     PendingPaymentsComponent,
     IntransitShipmentComponent,
-    ShipmentDetailsComponent
+    ShipmentDetailsComponent,
+    DeliveredOrdersComponent,
+    FreightComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    FormsModule
-    RouterModule,
+    FormsModule,
     FormsModule
   ],
   // providers: [{
