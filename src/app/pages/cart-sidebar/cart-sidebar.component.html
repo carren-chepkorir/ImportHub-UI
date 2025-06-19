@@ -1,0 +1,28 @@
+<div
+  class="position-fixed top-0 end-0 bg-light shadow h-100 p-4"
+  [class.show]="isOpen"
+  style="width: 360px; z-index: 1055;"
+>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h5 class="fw-bold">🛒 My Cart</h5>
+    <button class="btn btn-sm btn-outline-secondary" (click)="closeSidebar()">✖</button>
+  </div>
+
+  <div *ngIf="cart.length === 0" class="text-center text-muted mt-5">
+    <p>🛒 Your cart is empty.</p>
+  </div>
+
+  <div *ngFor="let item of cart" class="mb-3 d-flex">
+    <img [src]="item.image" alt="{{ item.name }}" width="60" class="me-2 rounded" />
+    <div class="flex-grow-1">
+      <h6 class="fw-semibold">{{ item.name }}</h6>
+      <p class="mb-1 text-muted small">${{ item.price }}</p>
+      <button class="btn btn-sm btn-outline-danger btn-sm" (click)="removeItem(item)">🗑️ Remove</button>
+    </div>
+  </div>
+
+  <div class="mt-4 border-top pt-3" *ngIf="cart.length > 0">
+    <p class="fw-bold">Total: ${{ getTotal() }}</p>
+    <button class="btn btn-primary w-100">Checkout</button>
+  </div>
+</div>

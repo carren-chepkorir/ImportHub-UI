@@ -18,6 +18,7 @@ interface Order {
   userName: string;
   estimatedFreight: number;
   pickedUp: boolean;
+  pickupCode: string;
   paid: boolean;
   items: OrderItem[];
 }
@@ -28,7 +29,7 @@ interface Order {
 })
 export class FreightComponent implements OnInit {
 
-   displayedOrders: Order[] = [];
+  displayedOrders: Order[] = [];
   isAdmin = true; // Set this based on user role in real app
 
   ngOnInit(): void {
@@ -40,6 +41,7 @@ export class FreightComponent implements OnInit {
         userName: 'johndoe',
         estimatedFreight: 1000,
         paid: true,
+        pickupCode: 'PK101-1234',
         pickedUp: false,
         items: [
           {
@@ -62,6 +64,7 @@ export class FreightComponent implements OnInit {
         userName: 'janedoe',
         estimatedFreight: 500,
         paid: false,
+        pickupCode: 'PK101-1234',
         pickedUp: true,
         items: [
           {
@@ -75,10 +78,17 @@ export class FreightComponent implements OnInit {
     ];
   }
 
-   selectedOrder: Order | null = null;
+  isViewing: boolean = false;
+  selectedOrder: Order | null = null;
 
   openEditModal(order: Order): void {
-    this.selectedOrder = { ...order }; // clone to avoid direct binding
+    this.selectedOrder = { ...order };
+    this.isViewing = true;
+  }
+
+  closeEditModal(): void {
+    this.isViewing = false;
+    this.selectedOrder = null;
   }
 
   saveOrder(): void {
@@ -89,9 +99,6 @@ export class FreightComponent implements OnInit {
       this.displayedOrders[index] = { ...this.selectedOrder };
     }
 
-    const modal = document.getElementById('editOrderModal');
-    if (modal) {
-      (window as any).bootstrap.Modal.getInstance(modal)?.hide();
-    }
+    this.closeEditModal();
   }
 }
