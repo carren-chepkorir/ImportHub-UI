@@ -21,6 +21,11 @@ import { IntransitShipmentComponent } from './admin/admin-dashboard/intransit-sh
 import { ShipmentDetailsComponent } from './pages/shipment-details/shipment-details.component';
 import { DeliveredOrdersComponent } from './admin/admin-dashboard/delivered-orders/delivered-orders.component';
 import { FreightComponent } from './admin/admin-dashboard/freight/freight.component';
+import { DeadlinesComponent } from './admin/admin-dashboard/deadlines/deadlines.component';
+import { ShopComponent } from './pages/shop/shop.component';
+import { CartSidebarComponent } from './pages/cart-sidebar/cart-sidebar.component';
+import { ShopSidebarComponent } from './pages/shop-sidebar/shop-sidebar.component';
+import { WishlistSidebarComponent } from './pages/wishlist-sidebar/wishlist-sidebar.component';
 
 // export function kcFactory(kService:KeycloakService){
 //   return ()=>kService.init();
@@ -45,14 +50,19 @@ import { FreightComponent } from './admin/admin-dashboard/freight/freight.compon
     IntransitShipmentComponent,
     ShipmentDetailsComponent,
     DeliveredOrdersComponent,
-    FreightComponent
+    FreightComponent,
+    DeadlinesComponent,
+    ShopComponent,
+    CartSidebarComponent,
+    ShopSidebarComponent,
+    WishlistSidebarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    FormsModule
+  
   ],
   // providers: [{
   //   provide:APP_INITIALIZER,

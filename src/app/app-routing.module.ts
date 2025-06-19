@@ -14,6 +14,8 @@ import { IntransitShipmentComponent } from './admin/admin-dashboard/intransit-sh
 import { ShipmentDetailsComponent } from './pages/shipment-details/shipment-details.component';
 import { DeliveredOrdersComponent } from './admin/admin-dashboard/delivered-orders/delivered-orders.component';
 import { FreightComponent } from './admin/admin-dashboard/freight/freight.component';
+import { DeadlinesComponent } from './admin/admin-dashboard/deadlines/deadlines.component';
+import { ShopComponent } from './pages/shop/shop.component';
 const routes: Routes = [
 
   {
@@ -21,13 +23,17 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'home',
+    path: '',
     component: HomeComponent
 
   },
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'shop',
+    component: ShopComponent
   },
 
   // {
@@ -52,7 +58,8 @@ const routes: Routes = [
         component: ShipmentDetailsComponent
       },
       { path: 'payments', component: PendingPaymentsComponent },
-        { path: 'freight', component: FreightComponent }
+        { path: 'freight', component: FreightComponent },
+         { path: 'deadlines', component: DeadlinesComponent },
 
     ],
   },
