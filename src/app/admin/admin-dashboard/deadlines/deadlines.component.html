@@ -1,0 +1,74 @@
+<div class="container mt-4">
+  <h4 class="mb-3">Upcoming Deadlines</h4>
+
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Related Orders</th>
+        <th>Days Left</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let deadline of deadlines">
+        <td>{{ deadline.type }}</td>
+        <td>{{ deadline.date }}</td>
+        <td>{{ deadline.description }}</td>
+        <td>{{ deadline.relatedOrders.join(', ') }}</td>
+        <td>
+          <span class="badge" [ngClass]="getBadgeClass(getDaysLeft(deadline.date))">
+            {{ getDaysLeft(deadline.date) }} days
+          </span>
+        </td>
+        <td class="text-center align-middle">
+  <button 
+    (click)="openDetails(deadline)" 
+    class="btn btn-sm btn-secondary">
+    <i class="bi bi-eye"></i> View
+  </button>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Deadline Details Modal -->
+<div *ngIf="isViewing" class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-dark bg-opacity-50 z-3">
+  <div class="bg-white p-4 rounded shadow w-100" style="max-width: 700px;">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h5 class="modal-title fw-bold">Deadline Details</h5>
+      <button (click)="closeViewDeadlineModal()" class="btn-close"></button>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Type:</label>
+          <input type="text" [(ngModel)]="selectedDeadline!.type" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Date:</label>
+          <input type="date" [(ngModel)]="selectedDeadline!.date" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Description:</label>
+          <textarea [(ngModel)]="selectedDeadline!.description" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Related Orders (comma-separated):</label>
+          <input type="text" [(ngModel)]="relatedOrdersInput" class="form-control" />
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end gap-2 mt-3">
+      <button class="btn btn-secondary" (click)="closeViewDeadlineModal()">Close</button>
+      <button class="btn btn-success" (click)="updateDeadline()">Update</button>
+      <button class="btn btn-outline-danger" (click)="deleteDeadline()">Delete</button>
+    </div>
+  </div>
+</div>
+

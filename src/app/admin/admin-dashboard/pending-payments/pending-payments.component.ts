@@ -7,6 +7,7 @@ interface Payment {
   amountDue: number;
   status: 'Unpaid' | 'Partial' | 'Paid';
   method: string;
+  receipt?: string;
 }
 @Component({
   selector: 'app-pending-payments',
@@ -16,6 +17,7 @@ interface Payment {
 export class PendingPaymentsComponent {
 
   selectedPayment: Payment | null = null;
+  isViewing = false;
 
   payments: Payment[] = [
     {
@@ -44,13 +46,15 @@ export class PendingPaymentsComponent {
     }
   ];
 
-  openDetails(payment: Payment) {
-    this.selectedPayment = { ...payment };
-    const modalElement = document.getElementById('paymentModal');
-    if (modalElement) {
-      const bootstrapModal = new (window as any).bootstrap.Modal(modalElement);
-      bootstrapModal.show();
-    }
+  showViewIssueModal(payments: any){
+    this.selectedPayment = payments;
+    this.isViewing = true;
+
+  }
+
+  closeViewPaymentModal() {
+    this.isViewing = false;
+    this.selectedPayment = null;
   }
 
   updateStatus() {
@@ -63,5 +67,45 @@ export class PendingPaymentsComponent {
 
     const modal = (window as any).bootstrap.Modal.getInstance(document.getElementById('paymentModal')!);
     modal?.hide();
+  }
+
+  openDetails(payment: Payment) {
+    this.selectedPayment = { ...payment };
+    this.isViewing = true;
+  }
+
+  updatePayment() {
+    if (!this.selectedPayment) return;
+    const index = this.payments.findIndex(p => p.id === this.selectedPayment?.id);
+    if (index !== -1) {
+      this.payments[index] = { ...this.selectedPayment };
+    }
+    this.closeViewPaymentModal();
+  }
+
+  deletePayment() {
+    if (!this.selectedPayment) return;
+    this.payments = this.payments.filter(p => p.id !== this.selectedPayment?.id);
+    this.closeViewPaymentModal();
+  }
+
+  onReceiptUpload(event: Event) {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput?.files?.length) {
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (this.selectedPayment) {
+          this.selectedPayment.receipt = reader.result as string;
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  clearReceipt() {
+    if (this.selectedPayment) {
+      this.selectedPayment.receipt = '';
+    }
   }
 }
